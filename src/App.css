@@ -57,7 +57,7 @@
 .form-start {
   height: 500px;
   width: 500px;
-  background-color: rgba(255, 255, 255, 0.418);
+  background-color: rgba(0, 0, 0, 0.137);
   color: white;
   border-radius: 17.5px;
   border-top-right-radius: 0px;
@@ -96,7 +96,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: rgba(255, 255, 255, 0.432);
+  background-color: rgba(0, 0, 0, 0.137);
   color: white;
 }
 .questionBox {

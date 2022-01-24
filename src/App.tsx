@@ -68,10 +68,10 @@ function App() {
                </Form>
             </div> : <QuestionCard />
           }
- <Button type="primary" className='selector' onClick={handleButton} >Start Quiz</Button>
-              
+            
         </div>
-      </div></>
+       <Button type="primary" className='selector' onClick={handleButton} >Start Quiz</Button>
+  </div></>
   );
 }
 
