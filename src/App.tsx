@@ -14,7 +14,7 @@ import {
   DatePicker,
   InputNumber,
   TreeSelect,
-  Switch, 
+  Switch,
 } from 'antd';
 
 const { Option } = Select;
@@ -28,56 +28,56 @@ function App() {
   return (
 
     <>  <div className="bg-image"></div>
- 
-      <div className="App">  
-      <div className="progress">
-          <StepShow/>
-      </div>
-      
-     
+
+      <div className="App">
+        <div className="progress">
+          <StepShow />
+        </div>
+
+
         <div className="form-start">
 
 
 
-<div className="formbox"> 
+          <div className="formbox">
 
-          <Form
-            labelCol={{ span: 4 }}
-            wrapperCol={{ span: 14 }}
-            layout="horizontal"
-            className='text-center'
-          >
+            <Form
+              labelCol={{ span: 4 }}
+              wrapperCol={{ span: 14 }}
+              layout="horizontal"
+              className='text-center'
+            >
 
-            <Form.Item  >
-              <Input  className='tranparent color-light' placeholder='Enter Your Name'/>
-            </Form.Item> <Form.Item  >
-              <InputNumber className='tranparent color-light'   placeholder='How Much Question'/>
-            </Form.Item>
-            <Form.Item   className='tranparent color-light' >
-              <Select
-                showSearch
-                dropdownStyle={{ backgroundColor: 'grey' }}
-                placeholder="Select Difficulty Level"
-                optionFilterProp="children" 
-              className='center'
-              >
-                <Option value="jack" className='tranparent'
-                  style={{ backgroundColor: 'green',with:'50px ' }} >Easy</Option>
-                   <Option value="jack" className='tranparent'
-                  style={{ backgroundColor: 'green',with:'50px ' }} >Medium</Option>
-                   <Option value="jack" className='tranparent'
-                  style={{ backgroundColor: 'green',with:'50px ' }} >Hard</Option>
-                 
-              </Select>,
-            </Form.Item>
+              <Form.Item  >
+                <Input className='tranparent color-light' placeholder='Enter Your Name' />
+              </Form.Item> <Form.Item  >
+                <InputNumber className='tranparent color-light' placeholder='How Much Question' />
+              </Form.Item>
+              <Form.Item className='tranparent color-light' >
+                <Select
+                  // showSearch
+                  dropdownStyle={{ backgroundColor: 'grey' }}
+                  placeholder="Select Difficulty Level"
+                  optionFilterProp="children"
+                  className='center'
+                >
+                  <Option value="easy" className='tranparent'
+                    style={{ backgroundColor: 'green', with: '50px ' }} >Easy</Option>
+                  <Option value="medium" className='tranparent'
+                    style={{ backgroundColor: 'green', with: '50px ' }} >Medium</Option>
+                  <Option value="hard" className='tranparent'
+                    style={{ backgroundColor: 'green', with: '50px ' }} >Hard</Option>
 
-
+                </Select>,
+              </Form.Item>
 
 
-            <Button type="primary" className='selector' onClick={handleButton} >Start Quiz</Button>
 
 
-          </Form></div>
+              <Button type="primary" className='selector' onClick={handleButton} >Start Quiz</Button>
+
+
+            </Form></div>
         </div>
       </div></>
   );
