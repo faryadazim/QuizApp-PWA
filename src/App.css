@@ -50,12 +50,12 @@
 }
 .selector:hover,
 .selector:focus {
-  background-color: rgb(85, 85, 85);
+  background-color:  rgba(5, 5, 5, 0.822);
   border-color: rgb(104, 102, 102);
 }
 
 .form-start {
-  height: 500px;
+  height: 400px;
   width: 500px;
   background-color: rgba(0, 0, 0, 0.137);
   color: white;
@@ -100,17 +100,32 @@
   color: white;
 }
 .questionBox {
-  background-color: rgba(255, 255, 255, 0.692);
+
+  background-color: rgba(5, 5, 5, 0.822);
   border-top-left-radius: 13px;
 
   border-bottom-right-radius: 13px;
-  padding: 6px;
-  margin: 3px;
+  padding:42px 16px;
+  margin: 3px 14px;
 }
 .questionBox1 {
   margin: auto 8px;
   font-weight: 500;
   font-size: 15px;
-  color: rgb(0, 0, 0) !important;
+  color: rgb(255, 255, 255) !important;
   /* text-shadow: 0 0 5px rgb(250, 250, 250); */
+}
+
+
+
+.ant-radio-checked .ant-radio-inner{
+  border-color: black !important ;
+}
+
+.ant-radio-checked .ant-radio-inner:after{
+  background-color: black;
+}
+
+.ant-radio:hover .ant-radio-inner {
+  border-color: black ;
 }
