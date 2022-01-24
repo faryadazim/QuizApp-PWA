@@ -64,11 +64,12 @@ function App() {
 
                   </Select>,
                 </Form.Item>
-                <Button type="primary" className='selector' onClick={handleButton} >Start Quiz</Button>
-              </Form>
+                {/* button here */}
+               </Form>
             </div> : <QuestionCard />
           }
-
+ <Button type="primary" className='selector' onClick={handleButton} >Start Quiz</Button>
+              
         </div>
       </div></>
   );
