@@ -1,1 +1,13 @@
 @import "~antd/dist/antd.css";
+
+.App {
+  height: 100vh;
+  width: 100vw;
+  background: url("./assets/pexels-olegbf-oleg-borisov-1342650.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  filter: blur(8px);
+  /* -webkit-filter: blur(8px); */
+}
