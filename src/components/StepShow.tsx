@@ -8,7 +8,7 @@ const StepShow = () => {
   return <>
     <div>
       <Steps>
-        <Step status="wait" title="Start" icon={progress || UserOutlined} />
+        <Step status="wait" title="Start" icon={progress || <SolutionOutlined />} />
         <Step status="wait" title="Test" icon={<UserOutlined />} />
         <Step status="wait" title="Finish" icon={< UserOutlined />} />
         <Step status="wait" title="Certification" icon={<SmileOutlined />} />
