@@ -4,14 +4,16 @@
   opacity: 1; /* Firefox */
 }
 
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
- color: white !important;
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: white !important;
 }
 
-::-ms-input-placeholder { /* Microsoft Edge */
- color: white !important;
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: white !important;
 }
-*{
+* {
   color: aliceblue !important;
 }
 
@@ -31,7 +33,7 @@
   text-align: center;
   justify-content: center;
   align-items: center;
-flex-flow: column;
+  flex-flow: column;
 }
 .selector {
   height: 35px;
@@ -52,52 +54,63 @@ flex-flow: column;
   border-color: rgb(104, 102, 102);
 }
 
-
-
-.form-start{
+.form-start {
   height: 500px;
   width: 500px;
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.418);
+  color: white;
   border-radius: 17.5px;
   border-top-right-radius: 0px;
   border-bottom-left-radius: 0px;
   border: 1px solid rgb(187, 187, 187);
 }
 
-
-.tranparent{
+.tranparent {
   background-color: transparent !important;
   width: 300px;
 }
-
- 
 
 .ant-select-selector {
   background-color: transparent !important;
   width: 300px !important;
 }
- .text-center{
-   /* text-align: center;*/  
-   display: flex;
- flex-direction: column;
- align-items: center;
- justify-content: center;
- color:white;
- align-content: center;
-  
- }
- .color-light{
-   color: white;
- }
- .center{
-   text-align: left;
-   color:white;
- }
- .formbox{ height: 100%;
+.text-center {
+  /* text-align: center;*/
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; 
-  background-color: rgba(255, 255, 255, 0.068);
-  color:white;
- }
+  justify-content: center;
+  color: white;
+  align-content: center;
+}
+.color-light {
+  color: white;
+}
+.center {
+  text-align: left;
+  color: white;
+}
+.formbox {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.432);
+  color: white;
+}
+.questionBox {
+  background-color: rgba(0, 0, 0, 0.856);
+  border-top-left-radius: 13px;
+
+  border-bottom-right-radius: 13px;
+  padding: 6px;
+  margin: 3px;
+}
+.questionBox1 {
+  margin: auto 8px;
+  font-weight: 400;
+  font-size: 14px;
+  color: rgb(255, 255, 255) !important;
+  /* text-shadow: 0 0 5px rgb(250, 250, 250); */
+}
