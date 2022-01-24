@@ -23,16 +23,62 @@
   text-align: center;
   justify-content: center;
   align-items: center;
+flex-flow: column;
 }
 .selector {
   height: 35px;
   width: 175px;
 
-  background-color: rgb(42, 42, 42);
+  background-color: transparent;
+  font-weight: 600;
   border-color: grey;
+  margin: 2px;
+  border: 1px solid rgb(187, 187, 187);
+  border-radius: 5px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
 .selector:hover,
 .selector:focus {
   background-color: rgb(85, 85, 85);
   border-color: rgb(104, 102, 102);
 }
+
+
+
+.form-start{
+  height: 800px;
+  width: 500px;
+  background-color: transparent;
+  border-radius: 17.5px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border: 1px solid rgb(187, 187, 187);
+}
+
+
+.tranparent{
+  background-color: transparent !important;
+  width: 300px;
+}
+
+ 
+
+.ant-select-selector {
+  background-color: transparent !important;
+  width: 300px !important;
+}
+ .text-center{
+   /* text-align: center;background-color: #fff; */
+   display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ align-content: center;
+ }
+ .center{
+   text-align: left;
+ }
+ .formbox{
+   background-color: #fff;
+ }
