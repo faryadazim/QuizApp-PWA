@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 // import { Button } from 'antd';
+import StepShow from './components/StepShow'
+
 import {
   Form,
   Input,
@@ -12,7 +14,7 @@ import {
   DatePicker,
   InputNumber,
   TreeSelect,
-  Switch,
+  Switch, 
 } from 'antd';
 
 const { Option } = Select;
@@ -26,7 +28,13 @@ function App() {
   return (
 
     <>  <div className="bg-image"></div>
-      <div className="App">
+ 
+      <div className="App">  
+      <div className="progress">
+          <StepShow/>
+      </div>
+      
+     
         <div className="form-start">
 
 
@@ -41,11 +49,11 @@ function App() {
           >
 
             <Form.Item  >
-              <Input className='tranparent' placeholder='Enter Your Name'/>
+              <Input  className='tranparent color-light' placeholder='Enter Your Name'/>
             </Form.Item> <Form.Item  >
-              <InputNumber className='tranparent'   placeholder='How Much Question'/>
+              <InputNumber className='tranparent color-light'   placeholder='How Much Question'/>
             </Form.Item>
-            <Form.Item   className='tranparent' >
+            <Form.Item   className='tranparent color-light' >
               <Select
                 showSearch
                 dropdownStyle={{ backgroundColor: 'grey' }}
@@ -54,7 +62,11 @@ function App() {
               className='center'
               >
                 <Option value="jack" className='tranparent'
-                  style={{ backgroundColor: 'green',with:'50px ' }} >Jack</Option>
+                  style={{ backgroundColor: 'green',with:'50px ' }} >Easy</Option>
+                   <Option value="jack" className='tranparent'
+                  style={{ backgroundColor: 'green',with:'50px ' }} >Medium</Option>
+                   <Option value="jack" className='tranparent'
+                  style={{ backgroundColor: 'green',with:'50px ' }} >Hard</Option>
                  
               </Select>,
             </Form.Item>

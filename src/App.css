@@ -1,23 +1,31 @@
 @import "~antd/dist/antd.css";
+::placeholder {
+  color: white !important;
+  opacity: 1; /* Firefox */
+}
 
-.bg-image {
-  height: 100vh;
-  width: 100vw;
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+ color: white !important;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+ color: white !important;
+}
+*{
+  color: aliceblue !important;
+}
+
+.App {
+  /* position: absolute;
+  top: 0; */
+
   background: url("./assets/bg1.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-
-  /* filter: blur(0px);
-  -webkit-filter: blur(2.5px); */
-}
-.App {
-  position: absolute;
-  top: 0;
-
   height: 100vh;
   width: 100vw;
-  left: 0;
+  /* left: 0; */
   color: aliceblue;
   display: flex;
   text-align: center;
@@ -47,7 +55,7 @@ flex-flow: column;
 
 
 .form-start{
-  height: 800px;
+  height: 500px;
   width: 500px;
   background-color: transparent;
   border-radius: 17.5px;
@@ -69,16 +77,27 @@ flex-flow: column;
   width: 300px !important;
 }
  .text-center{
-   /* text-align: center;background-color: #fff; */
+   /* text-align: center;*/  
    display: flex;
  flex-direction: column;
  align-items: center;
  justify-content: center;
+ color:white;
  align-content: center;
+  
+ }
+ .color-light{
+   color: white;
  }
  .center{
    text-align: left;
+   color:white;
  }
- .formbox{
-   background-color: #fff;
+ .formbox{ height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+  background-color: rgba(255, 255, 255, 0.068);
+  color:white;
  }
