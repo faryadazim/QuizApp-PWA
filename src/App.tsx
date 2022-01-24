@@ -1,3 +1,4 @@
+import QuestionCard from './components/QuestionCard';
 import React, { useState } from 'react';
 import './App.css';
 import StepShow from './components/StepShow'
@@ -9,7 +10,6 @@ import {
   InputNumber,
 } from 'antd';
 const { Option } = Select;
-import QuestionCard from './components/QuestionCard';
 
 function App() {
   const [isGameOver, setIsGameOver] = useState(true);
