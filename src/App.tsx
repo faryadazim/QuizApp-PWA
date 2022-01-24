@@ -18,7 +18,7 @@ function App() {
 
   const handleButton = () => {
     console.log("clicked");
-    setIsGameOver(false)
+    setIsGameOver(!isGameOver)
 
   }
   return (
