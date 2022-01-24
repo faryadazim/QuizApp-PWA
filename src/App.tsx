@@ -4,9 +4,13 @@ import './App.css';
 import { Button } from 'antd';
 function App() {
   return (
-    <div className="App">
-      <Button type="primary">Button</Button>
-    </div>
+
+    <>
+      <div className="bg-image"></div>
+      <div className="App">
+
+        <Button type="primary" className='selector' >Button</Button>
+      </div></>
   );
 }
 
