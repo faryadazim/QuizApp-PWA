@@ -76,15 +76,15 @@ const checkAnswer=(e:any)=>{
               </Form.Item>
               <Button type="primary" className='selector' onClick={handleButton} >Start Quiz</Button>
             </Form>
-          </div> : <Loading/>
-          // <QuestionCard
-          //   question={question[number].question}
-          //   answers={question[number].answers}
-          //   QuestionNr={number}
-          //   TotalQuestion={TotalQuestion}
-          //    userState={userAnswer}
-          //    callback={checkAnswer} 
-          //    score={score}/>
+          </div> :// <Loading/>
+          <QuestionCard
+            question={question[number].question}
+            answers={question[number].answers}
+            QuestionNr={number}
+            TotalQuestion={TotalQuestion}
+             userState={userAnswer}
+             callback={checkAnswer} 
+             score={score}/>
              }
         </div>
       </div>

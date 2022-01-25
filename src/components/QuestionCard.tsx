@@ -31,6 +31,13 @@ const [selectedAns, setselectedAns] = useState();
     
 
     }
+    console.log( { answers ,
+        QuestionNr ,
+        TotalQuestion,
+         userState,
+         callback ,
+        score});
+    
 
     return <>
         
