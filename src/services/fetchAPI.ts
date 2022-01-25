@@ -10,8 +10,10 @@ export type Questions= {
 
 
 
-export const  fetchApi =async()=>{
-    const url = 'https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple';
+export const  fetchApi =async(difficulty:string,TotalQuestion:number)=>{
+    console.log(difficulty,TotalQuestion);
+    
+    const url = `https://opentdb.com/api.php?amount=${TotalQuestion}&difficulty=${difficulty}&type=multiple`
     const {results} = (await (await fetch(url)).json())
  
     

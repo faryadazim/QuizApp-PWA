@@ -15,6 +15,7 @@ type Props = {
     callback: any,
     score: number
     handleNext: any
+    handleFinish:any
 }
 
 
@@ -24,7 +25,7 @@ const QuestionCard = ({ question,
     QuestionNr,
     TotalQuestion,
     userState,
-    callback, handleNext,
+    callback, handleNext,handleFinish,
     score }: Props) => {
     const [selectedAns, setselectedAns] = useState();
     const SelectedAnswer = (e: any) => {
@@ -58,9 +59,9 @@ const QuestionCard = ({ question,
             </Radio.Group>
         </div>
         {
-            QuestionNr <= TotalQuestion ? <Button type="primary" className='selector' onClick={() => { callback(selectedAns); handleNext(QuestionNr); }} >Next</Button> :
+            QuestionNr < TotalQuestion ? <Button type="primary" className='selector' onClick={() => { callback(selectedAns); handleNext(QuestionNr); }} >Next</Button> :
                 <Button type="primary" className='selector' onClick={() => {
-                    console.log('Finish');
+                    handleFinish()
                 }} >Finish</Button>
         }
     </>;
