@@ -49,7 +49,7 @@ function App() {
     setnumber(e)
   }
 
-  const handleFinish = ()=>{
+  const handleFinish = () => {
     setIsGameOver(true)
     setName('')
     setTotalQuestion(0)
@@ -94,7 +94,7 @@ function App() {
                   </Select>,
                 </Form.Item>
                 {
-                  !name || !difficulty || (!TotalQuestion || undefined) ? null : <Button type="primary" className='selector' onClick={handleStart} >Start Quiz</Button> } </Form>
+                  !name || !difficulty || (!TotalQuestion || undefined) ? null : <Button type="primary" className='selector' onClick={handleStart} >Start Quiz</Button>} </Form>
             </div> :// <Loading/>
               <QuestionCard
                 question={question[number].question}
