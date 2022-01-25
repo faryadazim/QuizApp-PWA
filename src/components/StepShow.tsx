@@ -1,6 +1,7 @@
 import { Steps } from 'antd';
 import { UserOutlined, SolutionOutlined, LoadingOutlined, SmileOutlined } from '@ant-design/icons';
 import { useState } from 'react';
+import { Spin } from 'antd';
 
 const { Step } = Steps;
 const StepShow = () => {
@@ -8,10 +9,9 @@ const StepShow = () => {
   return <>
     <div>
       <Steps>
-        <Step status="wait" title="Start" icon={progress || <SolutionOutlined />} />
-        <Step status="wait" title="Test" icon={<UserOutlined />} />
-        <Step status="wait" title="Finish" icon={< UserOutlined />} />
-        <Step status="wait" title="Certification" icon={<SmileOutlined />} />
+        <Step status="wait" title="Start" icon={    <Spin  /> || <UserOutlined />} />
+  <Step status="wait" title="Test" icon={<SolutionOutlined />} />
+         <Step status="wait" title="Finish" icon={<SmileOutlined />} />
 
       </Steps></div>
   </>;
