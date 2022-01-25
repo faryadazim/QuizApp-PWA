@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import './App.css';
 import { fetchApi } from './services/fetchAPI';
 import StepShow from './components/StepShow'
+import {Questions} from './services/fetchAPI'
 import {
   Form,
   Input,
@@ -11,14 +12,26 @@ import {
   InputNumber,
 } from 'antd';
 const { Option } = Select;
-fetchApi()
+
+type QuestionState=Questions & {
+answers:string[]
+}
+
 function App() {
+  const [loading, setLoading] = useState();
+  const [questionstate, setquestionstate] = useState<QuestionState[]>([]);
+  const [userAnswer, setuserAnswer] = useState();
+  const [number, setnumber] = useState();
+  const [score, setscore] = useState(0);
   const [isGameOver, setIsGameOver] = useState(true);
 
-  const handleButton = () => {
-    console.log("clicked");
+  const handleButton = async() => {
+    const Data = await fetchApi();
+    setquestionstate(Data)
     setIsGameOver(!isGameOver)
   }
+console.log(questionstate.);
+console.log(26466057362626116299);
 
   return (
     <>
@@ -57,7 +70,7 @@ function App() {
               </Form.Item>
               <Button type="primary" className='selector' onClick={handleButton} >Start Quiz</Button>
             </Form>
-          </div> : <QuestionCard />}
+          </div> : <QuestionCard question={questionstate}/>}
         </div>
       </div>
     </>

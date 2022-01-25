@@ -1,6 +1,6 @@
 import { shuffleArray } from './../utility';
 
-type Questions= {
+export type Questions= {
     category:string,
         correct_answer:string,
         incorrect_answers:string[],
@@ -15,10 +15,10 @@ export const  fetchApi =async()=>{
     const {results} = (await (await fetch(url)).json())
  
     
-        const aray=     results.map(({category, correct_answer,incorrect_answers,  question}:Questions)=>{
+        const data=     results.map(({category, correct_answer,incorrect_answers,  question}:Questions)=>{
 return({category, correct_answer,incorrect_answers,  question, answers:shuffleArray([correct_answer, ...incorrect_answers])});
 
             })
        
-       console.log(aray);
+      return data
 }

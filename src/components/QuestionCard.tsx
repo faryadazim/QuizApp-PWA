@@ -6,7 +6,8 @@ import {
     Button
 } from 'antd';
 
-const QuestionCard = () => {
+const QuestionCard = ({question}:any) => {
+console.log(question);
 
     const SelectedAnswer = (e: any) => {
         console.log(e.target.value);
