@@ -11,6 +11,7 @@ import {
   Select,
   InputNumber,
 } from 'antd';
+import Loading from './components/Loading';
 const { Option } = Select;
 
 type QuestionState = Questions & {
@@ -19,7 +20,7 @@ type QuestionState = Questions & {
 
 
 function App() {
-  const [loading, setLoading] = useState();
+  const [loading, setLoading] = useState(true);
   const [TotalQuestion, setTotalQuestion] = useState(10);
   // const [questionstate, setquestionstate] = useState<QuestionState[]>([]);
   const [question, setquestion] = useState<QuestionState[]>([])
@@ -75,14 +76,16 @@ const checkAnswer=(e:any)=>{
               </Form.Item>
               <Button type="primary" className='selector' onClick={handleButton} >Start Quiz</Button>
             </Form>
-          </div> : 
-          <QuestionCard
-            question={question[number].question}
-            answers={question[number].answers}
-            QuestionNr={number}
-            TotalQuestion={TotalQuestion}
-             userState={userAnswer}
-             callback={checkAnswer} />}
+          </div> : <Loading/>
+          // <QuestionCard
+          //   question={question[number].question}
+          //   answers={question[number].answers}
+          //   QuestionNr={number}
+          //   TotalQuestion={TotalQuestion}
+          //    userState={userAnswer}
+          //    callback={checkAnswer} 
+          //    score={score}/>
+             }
         </div>
       </div>
     </>
