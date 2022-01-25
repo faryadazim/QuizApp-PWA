@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import './App.css';
 import { fetchApi } from './services/fetchAPI';
 import StepShow from './components/StepShow'
-import {Questions} from './services/fetchAPI'
+import { Questions } from './services/fetchAPI'
 import {
   Form,
   Input,
@@ -13,26 +13,31 @@ import {
 } from 'antd';
 const { Option } = Select;
 
-type QuestionState=Questions & {
-answers:string[]
+type QuestionState = Questions & {
+  answers: string[]
 }
+
 
 function App() {
   const [loading, setLoading] = useState();
-  const [questionstate, setquestionstate] = useState<QuestionState[]>([]);
+  const [TotalQuestion, setTotalQuestion] = useState(10);
+  // const [questionstate, setquestionstate] = useState<QuestionState[]>([]);
+  const [question, setquestion] = useState<QuestionState[]>([])
   const [userAnswer, setuserAnswer] = useState();
-  const [number, setnumber] = useState();
+  const [number, setnumber] = useState(0);
   const [score, setscore] = useState(0);
   const [isGameOver, setIsGameOver] = useState(true);
 
-  const handleButton = async() => {
+  const handleButton = async () => {
     const Data = await fetchApi();
-    setquestionstate(Data)
+    setquestion(Data)
     setIsGameOver(!isGameOver)
   }
-console.log(questionstate.);
-console.log(26466057362626116299);
-
+  // console.log(26466057362626116299);
+const checkAnswer=(e:any)=>{
+  console.log(e);
+  
+}
   return (
     <>
       <div className="bg-image"></div>
@@ -70,7 +75,12 @@ console.log(26466057362626116299);
               </Form.Item>
               <Button type="primary" className='selector' onClick={handleButton} >Start Quiz</Button>
             </Form>
-          </div> : <QuestionCard question={questionstate}/>}
+          </div> : 
+          <QuestionCard
+            question={question[number].question}
+            answers={question[number].answers}
+            QuestionNr={number}
+            TotalQuestion={TotalQuestion} userState={userAnswer} callback={checkAnswer} />}
         </div>
       </div>
     </>

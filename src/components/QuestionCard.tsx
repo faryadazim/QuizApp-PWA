@@ -7,7 +7,7 @@ import {
 } from 'antd';
 
 const QuestionCard = ({question}:any) => {
-console.log(question);
+// console.log(question);
 
     const SelectedAnswer = (e: any) => {
         console.log(e.target.value);
