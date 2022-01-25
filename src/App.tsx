@@ -26,20 +26,27 @@ function App() {
   const [number, setnumber] = useState(0);
   const [score, setscore] = useState(0);
   const [isGameOver, setIsGameOver] = useState(true);
+  const [progress, setprogress] = useState('start');
   // Form Handling 
   const [name, setName] = useState<string>();
   const [TotalQuestion, setTotalQuestion] = useState<number>(0);
   const [difficulty, setDifficulty] = useState<string>('');
-  const [formFulFil, setformFulFil] = useState<any>(false);
+  // const [formFulFil, setformFulFil] = useState<any>(false);
 
   const handleStart = async () => {
-    const Data = await fetchApi(difficulty, TotalQuestion);
-    // setformFulFil({name,TotalQuestion,difficulty})
+    const Data = await fetchApi(difficulty, TotalQuestion); 
+    setprogress('test')
     setquestion(Data)
     setIsGameOver(!isGameOver)
 
 
   }
+ const progressFunc = ()=>{
+  //  setprogress('finish')
+ }
+
+  number===(TotalQuestion-1)? progressFunc(): console.log('null');
+  
 
   const checkAnswer = (e: any) => {
     // console.log(e);
@@ -63,7 +70,7 @@ function App() {
       <div className="bg-image"></div>
       <div className="App">
         <div className="progress">
-          <StepShow />
+          <StepShow progress={progress} />
         </div>
         <div className="form-start">
           {
