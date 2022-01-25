@@ -21,24 +21,35 @@ type QuestionState = Questions & {
 
 function App() {
   const [loading, setLoading] = useState(true);
-  const [TotalQuestion, setTotalQuestion] = useState(10);
-  // const [questionstate, setquestionstate] = useState<QuestionState[]>([]);
   const [question, setquestion] = useState<QuestionState[]>([])
   const [userAnswer, setuserAnswer] = useState();
   const [number, setnumber] = useState(0);
   const [score, setscore] = useState(0);
   const [isGameOver, setIsGameOver] = useState(true);
+  // Form Handling 
+  const [name, setName] = useState<string>();
+  const [TotalQuestion, setTotalQuestion] = useState<number>(0); 
+  const [difficulty, setDifficulty] = useState<string>();
+  const [formFulFil, setformFulFil] = useState<any>(false);
 
-  const handleButton = async () => {
+  const handleStart = async () => {
     const Data = await fetchApi();
+    // setformFulFil({name,TotalQuestion,difficulty})
     setquestion(Data)
     setIsGameOver(!isGameOver)
-  }
-  // console.log(26466057362626116299);
+   
+    
+  } 
+
 const checkAnswer=(e:any)=>{
   console.log(e);
   
 }
+const handleNext = (e:number)=>{
+  setnumber(e)
+}
+ 
+
   return (
     <>
       <div className="bg-image"></div>
@@ -47,20 +58,21 @@ const checkAnswer=(e:any)=>{
           <StepShow />
         </div>
         <div className="form-start">
-          {isGameOver ? <div className="formbox">
+          {
+          isGameOver ? <div className="formbox">
             <Form
               labelCol={{ span: 4 }}
               wrapperCol={{ span: 14 }}
               layout="horizontal"
               className='text-center' >
               <Form.Item  >
-                <Input className='tranparent color-light' placeholder='Enter Your Name' />
+                <Input className='tranparent color-light' value={name} onChange={(e)=>setName(e.target.value) } placeholder='Enter Your Name' />
               </Form.Item> <Form.Item  >
-                <InputNumber className='tranparent color-light' placeholder='How Much Question' />
+                <InputNumber className='tranparent color-light'  value={TotalQuestion} onChange={(e)=>setTotalQuestion(e) }placeholder='How Much Question' />
               </Form.Item>
               <Form.Item className='tranparent color-light' >
                 <Select
-                  // showSearch
+                onSelect={(e:any)=>setDifficulty(e)}
                   dropdownStyle={{ backgroundColor: 'grey' }}
                   placeholder="Select Difficulty Level"
                   optionFilterProp="children"
@@ -71,20 +83,29 @@ const checkAnswer=(e:any)=>{
                     style={{ backgroundColor: 'green', with: '50px ' }} >Medium</Option>
                   <Option value="hard" className='tranparent'
                     style={{ backgroundColor: 'green', with: '50px ' }} >Hard</Option>
-
                 </Select>,
               </Form.Item>
-              <Button type="primary" className='selector' onClick={handleButton} >Start Quiz</Button>
+
+                {
+                  !name || !difficulty || (!TotalQuestion ||undefined) ? null :<Button type="primary" className='selector' onClick={handleStart} >Start Quiz</Button> 
+                  
+                  
+                }
+
+
+
+              
             </Form>
           </div> :// <Loading/>
           <QuestionCard
             question={question[number].question}
             answers={question[number].answers}
-            QuestionNr={number}
-            TotalQuestion={TotalQuestion}
+            QuestionNr={number+1}
+            TotalQuestion={TotalQuestion }
              userState={userAnswer}
              callback={checkAnswer} 
-             score={score}/>
+             score={score}
+             handleNext={handleNext}/>
              }
         </div>
       </div>
