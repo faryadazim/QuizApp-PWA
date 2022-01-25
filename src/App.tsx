@@ -1,6 +1,7 @@
 import QuestionCard from './components/QuestionCard';
 import React, { useState } from 'react';
 import './App.css';
+import { fetchApi } from './services/fetchAPI';
 import StepShow from './components/StepShow'
 import {
   Form,
@@ -10,7 +11,7 @@ import {
   InputNumber,
 } from 'antd';
 const { Option } = Select;
-
+fetchApi()
 function App() {
   const [isGameOver, setIsGameOver] = useState(true);
 
