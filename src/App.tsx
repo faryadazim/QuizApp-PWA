@@ -26,7 +26,6 @@ function App() {
   const [number, setnumber] = useState(0);
   const [score, setscore] = useState(0);
   const [isGameOver, setIsGameOver] = useState(true);
-  const [progress, setprogress] = useState<string>('start');
   // Form Handling 
   const [name, setName] = useState<string>();
   const [TotalQuestion, setTotalQuestion] = useState<number>(0);
@@ -38,7 +37,6 @@ function App() {
     // setformFulFil({name,TotalQuestion,difficulty})
     setquestion(Data)
     setIsGameOver(!isGameOver)
-    setprogress('test')
 
 
   }
@@ -65,7 +63,7 @@ function App() {
       <div className="bg-image"></div>
       <div className="App">
         <div className="progress">
-          <StepShow progress={progress} />
+          <StepShow />
         </div>
         <div className="form-start">
           {

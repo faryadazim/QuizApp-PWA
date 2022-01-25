@@ -9,9 +9,9 @@ const StepShow = ({progress}:any) => {
   return <>
     <div>
       <Steps>
-        <Step status="wait" title="Start" icon={ progress==='start'?  <Spin  /> : <UserOutlined />} />
-  <Step status="wait" title="Test" icon={ progress==='test'?  <Spin  /> :<SolutionOutlined />} />
-         <Step status="wait" title="Finish" icon={<SmileOutlined />} />
+        <Step status="wait" title="Start" icon={ progress=='start'?  <Spin  /> : <UserOutlined />} />
+  <Step status="wait" title="Test" icon={ progress=='test'?  <Spin  /> :<SolutionOutlined />} />
+         <Step status="wait" title="Finish" icon={ progress=='finish'?  <Spin  /> :<SmileOutlined />} />
 
       </Steps></div>
   </>;
