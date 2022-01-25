@@ -144,3 +144,6 @@
 .ant-spin-dot-item {
   background-color: rgb(255, 255, 255) !important;
 }
+.ant-select-selection-search-input{
+  background-color: #fff;
+}
