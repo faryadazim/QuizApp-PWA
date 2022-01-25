@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Radio, Input, Space } from 'antd';
 
 
@@ -6,11 +6,21 @@ import {
     Button
 } from 'antd';
 
-const QuestionCard = ({question}:any) => {
-// console.log(question);
 
+
+
+
+const QuestionCard = ({question ,
+    answers ,
+    QuestionNr ,
+    TotalQuestion,
+     userState,
+     callback ,}:any) => {
+// console.log(question); 
+const [selectedAns, setselectedAns] = useState();
     const SelectedAnswer = (e: any) => {
-        console.log(e.target.value);
+        setselectedAns(e.target.value)
+    
 
     }
 
@@ -36,7 +46,7 @@ const QuestionCard = ({question}:any) => {
             </Radio.Group>
 
         </div>
-        <Button   type="primary" className='selector'  >Start Quiz</Button>
+        <Button   type="primary" className='selector' onClick={callback(selectedAns)} >Start Quiz</Button>
 
 
     </>;

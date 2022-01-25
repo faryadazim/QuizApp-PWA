@@ -80,7 +80,9 @@ const checkAnswer=(e:any)=>{
             question={question[number].question}
             answers={question[number].answers}
             QuestionNr={number}
-            TotalQuestion={TotalQuestion} userState={userAnswer} callback={checkAnswer} />}
+            TotalQuestion={TotalQuestion}
+             userState={userAnswer}
+             callback={checkAnswer} />}
         </div>
       </div>
     </>
