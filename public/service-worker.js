@@ -7,7 +7,7 @@ this.addEventListener("install", function (event) {
         "/static/js/main.chunk.js",
         "/static/js/0.chunk.js",
         "/static/js/bundle.js",
-        "/index.html",
+        "/index.html", "/ ", "static/media/bg1.c2ac930e00661aef2357.jpg",
         "/favicon.ico",
       ]);
     })
