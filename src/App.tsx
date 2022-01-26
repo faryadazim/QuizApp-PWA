@@ -18,7 +18,6 @@ type QuestionState = Questions & {
   answers: string[]
 }
 
-
 function App() {
   const [loading, setLoading] = useState(false);
   const [question, setquestion] = useState<QuestionState[]>([])
@@ -41,11 +40,7 @@ function App() {
     setquestion(Data)
     setIsGameOver(!isGameOver)
     setLoading(false)
-
-
   }
-
-
   const checkAnswer = (e: any) => {
     setuserAnswer([
       ...userAnswer,
@@ -53,52 +48,35 @@ function App() {
         Question: question[number].question,
         UserAnswer: e,
         Correct_Answer: question[number].correct_answer,
-
       }
     ])
     if (e === question[number].correct_answer) {
       setscore(score + 1)
-
     }
-
   }
   const handleNext = (e: number) => {
-
     setnumber(e)
   }
-
   const handleFinish = () => {
-
     setshowResult(true)
-
+    console.log(userAnswer);
     setDifficulty('')
-
-
-
-
   }
   const handleCertificate = () => {
     setIsGameOver(true)
     setshowResult(false)
     setName('')
-
     setprogress('start')
     setTotalQuestion(0)
     setnumber(0)
     setscore(0)
-
-
   }
-
   useEffect(() => {
     const progressFunc = () => {
       setprogress('finish')
     }
-
     number === (TotalQuestion - 1) && progressFunc()
-
   });
-
 
   return (
     <>
@@ -148,13 +126,11 @@ function App() {
               answers={question[number].answers}
               QuestionNr={number + 1}
               TotalQuestion={TotalQuestion}
-              userState={userAnswer}
               callback={checkAnswer}
               score={score}
               handleFinish={handleFinish}
               handleNext={handleNext} />
           }
-
           {
             !isGameOver && showResult && <ResultCard handleCertificate={handleCertificate} score={score} TotalQuestion={TotalQuestion} name={name} />
           }
@@ -163,5 +139,4 @@ function App() {
     </>
   );
 }
-
 export default App;
