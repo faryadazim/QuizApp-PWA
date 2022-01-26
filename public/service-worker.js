@@ -14,7 +14,7 @@ this.addEventListener("install", function (event) {
   );
 });
 
-// "/static/js/main.chunk.js",
+// "/static/js/main.chunk.js", 
 // "/static/js/0.chunk.js",
 // "/static/js/bundle.js",
 // "/index.html",
