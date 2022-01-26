@@ -8,7 +8,8 @@ this.addEventListener("install", function (event) {
         "/static/js/0.chunk.js",
         "/static/js/bundle.js",
         "/index.html", "/ ", "static/media/bg1.c2ac930e00661aef2357.jpg",
-        "/favicon.ico",
+        "/favicon.ico","/manifest.json"
+        , "https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple"
       ]);
     })
   );
