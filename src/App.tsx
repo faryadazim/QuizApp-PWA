@@ -12,11 +12,62 @@ import {
 } from 'antd';
 import Loading from './components/Loading';
 import ResultCard from './components/ResultCard';
-const { Option } = Select;
+
+ 
+import { initializeApp } from "firebase/app";
+
+import { getAnalytics } from "firebase/analytics"; const { Option } = Select;
 
 type QuestionState = Questions & {
   answers: string[]
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+const firebaseConfig = {
+
+  apiKey: "AIzaSyDB16OZ6v3EhpS_leqpzg7g3SgEBkVQe4o",
+
+  authDomain: "quizee-faryad-azim.firebaseapp.com",
+
+  projectId: "quizee-faryad-azim",
+
+  storageBucket: "quizee-faryad-azim.appspot.com",
+
+  messagingSenderId: "950176253850",
+
+  appId: "1:950176253850:web:655202ee4b6bf1613a9c23",
+
+  measurementId: "G-98V6CFV75R"
+
+}; 
+
+const app = initializeApp(firebaseConfig);
+
+const analytics = getAnalytics(app);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function App() {
   const [loading, setLoading] = useState(false);
