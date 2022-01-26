@@ -35,6 +35,9 @@
   align-items: center;
   flex-flow: column;
 }
+/* .margin-top {
+  margin-top: 43px;
+} */
 .selector {
   height: 35px;
   width: 175px;
@@ -50,7 +53,7 @@
 }
 .selector:hover,
 .selector:focus {
-  background-color:  rgba(5, 5, 5, 0.822);
+  background-color: rgba(5, 5, 5, 0.822);
   border-color: rgb(104, 102, 102);
 }
 
@@ -100,39 +103,35 @@
   color: white;
 }
 .questionBox {
-
   background-color: rgba(5, 5, 5, 0.664);
   border-top-left-radius: 13px;
 
   border-bottom-right-radius: 13px;
-  padding:42px 16px;
+  padding: 42px 16px;
   margin: 3px 14px;
 }
 .questionBox1 {
-  margin: auto 8px;
+  margin: 0 8px;
   font-weight: 500;
+  height: 90%;
   font-size: 15px;
   color: rgb(255, 255, 255) !important;
   /* text-shadow: 0 0 5px rgb(250, 250, 250); */
 }
 
-
-
-.ant-radio-checked .ant-radio-inner{
+.ant-radio-checked .ant-radio-inner {
   border-color: black !important ;
 }
 
-.ant-radio-checked .ant-radio-inner:after{
+.ant-radio-checked .ant-radio-inner:after {
   background-color: black;
 }
 
 .ant-radio:hover .ant-radio-inner {
-  border-color: black ;
+  border-color: black;
 }
 
-
-.loaderClass{
- 
+.loaderClass {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -144,6 +143,12 @@
 .ant-spin-dot-item {
   background-color: rgb(255, 255, 255) !important;
 }
-.ant-select-selection-search-input{
+.ant-select-selection-search-input {
   background-color: #fff !important;
+}
+
+.resultCard {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.335);
 }

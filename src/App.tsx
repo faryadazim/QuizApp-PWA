@@ -1,9 +1,8 @@
 import QuestionCard from './components/QuestionCard';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
-import { fetchApi } from './services/fetchAPI';
+import { fetchApi, Questions } from './services/fetchAPI';
 import StepShow from './components/StepShow'
-import { Questions } from './services/fetchAPI'
 import {
   Form,
   Input,
@@ -12,6 +11,7 @@ import {
   InputNumber,
 } from 'antd';
 import Loading from './components/Loading';
+import ResultCard from './components/ResultCard';
 const { Option } = Select;
 
 type QuestionState = Questions & {
@@ -20,9 +20,9 @@ type QuestionState = Questions & {
 
 
 function App() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [question, setquestion] = useState<QuestionState[]>([])
-  const [userAnswer, setuserAnswer] = useState();
+  const [userAnswer, setuserAnswer] = useState<any>([]);
   const [number, setnumber] = useState(0);
   const [score, setscore] = useState(0);
   const [isGameOver, setIsGameOver] = useState(true);
@@ -31,39 +31,74 @@ function App() {
   const [name, setName] = useState<string>();
   const [TotalQuestion, setTotalQuestion] = useState<number>(0);
   const [difficulty, setDifficulty] = useState<string>('');
+  const [showResult, setshowResult] = useState(false);
   // const [formFulFil, setformFulFil] = useState<any>(false);
 
   const handleStart = async () => {
-    const Data = await fetchApi(difficulty, TotalQuestion); 
+    setLoading(true)
+    const Data = await fetchApi(difficulty, TotalQuestion);
     setprogress('test')
     setquestion(Data)
     setIsGameOver(!isGameOver)
+    setLoading(false)
 
 
   }
- const progressFunc = ()=>{
-  //  setprogress('finish')
- }
 
-  number===(TotalQuestion-1)? progressFunc(): console.log('null');
-  
 
   const checkAnswer = (e: any) => {
-    // console.log(e);
+    setuserAnswer([
+      ...userAnswer,
+      {
+        Question: question[number].question,
+        UserAnswer: e,
+        Correct_Answer: question[number].correct_answer,
+
+      }
+    ])
+    if (e === question[number].correct_answer) {
+      setscore(score + 1)
+
+    }
 
   }
   const handleNext = (e: number) => {
+
     setnumber(e)
   }
 
   const handleFinish = () => {
-    setIsGameOver(true)
-    setName('')
-    setTotalQuestion(0)
+
+    setshowResult(true)
+
     setDifficulty('')
-    setnumber(0)
+
+
+
 
   }
+  const handleCertificate = () => {
+    setIsGameOver(true)
+    setshowResult(false)
+    setName('')
+
+    setprogress('start')
+    setTotalQuestion(0)
+    setnumber(0)
+    setscore(0)
+
+
+  }
+
+  useEffect(() => {
+    const progressFunc = () => {
+      setprogress('finish')
+    }
+
+    number === (TotalQuestion - 1) && progressFunc()
+
+  });
+
 
   return (
     <>
@@ -74,12 +109,12 @@ function App() {
         </div>
         <div className="form-start">
           {
-            isGameOver ? <div className="formbox">
+            isGameOver && !loading && <div className="formbox">
               <Form
                 labelCol={{ span: 4 }}
                 wrapperCol={{ span: 14 }}
                 layout="horizontal"
-                className='text-center' >
+                className='text-center margin-top' >
                 <Form.Item  >
                   <Input className='tranparent color-light' value={name} onChange={(e) => setName(e.target.value)} placeholder='Enter Your Name' />
                 </Form.Item> <Form.Item  >
@@ -102,17 +137,26 @@ function App() {
                 </Form.Item>
                 {
                   !name || !difficulty || (!TotalQuestion || undefined) ? null : <Button type="primary" className='selector' onClick={handleStart} >Start Quiz</Button>} </Form>
-            </div> :// <Loading/>
-              <QuestionCard
-                question={question[number].question}
-                answers={question[number].answers}
-                QuestionNr={number + 1}
-                TotalQuestion={TotalQuestion}
-                userState={userAnswer}
-                callback={checkAnswer}
-                score={score}
-                handleFinish={handleFinish}
-                handleNext={handleNext} />
+            </div>
+          }
+          {
+            loading && <Loading />
+          }
+          {
+            !isGameOver && !loading && !showResult && <QuestionCard
+              question={question[number].question}
+              answers={question[number].answers}
+              QuestionNr={number + 1}
+              TotalQuestion={TotalQuestion}
+              userState={userAnswer}
+              callback={checkAnswer}
+              score={score}
+              handleFinish={handleFinish}
+              handleNext={handleNext} />
+          }
+
+          {
+            !isGameOver && showResult && <ResultCard handleCertificate={handleCertificate} score={score} TotalQuestion={TotalQuestion} name={name} />
           }
         </div>
       </div>

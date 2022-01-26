@@ -15,7 +15,7 @@ type Props = {
     callback: any,
     score: number
     handleNext: any
-    handleFinish:any
+    handleFinish: any
 }
 
 
@@ -25,16 +25,16 @@ const QuestionCard = ({ question,
     QuestionNr,
     TotalQuestion,
     userState,
-    callback, handleNext,handleFinish,
+    callback, handleNext, handleFinish,
     score }: Props) => {
     const [selectedAns, setselectedAns] = useState();
     const SelectedAnswer = (e: any) => {
+        setisSelect(true)
         setselectedAns(e.target.value)
-
 
     }
 
-
+    const [isSelect, setisSelect] = useState(false);
 
     return <>
 
@@ -59,10 +59,15 @@ const QuestionCard = ({ question,
             </Radio.Group>
         </div>
         {
-            QuestionNr < TotalQuestion ? <Button type="primary" className='selector' onClick={() => { callback(selectedAns); handleNext(QuestionNr); }} >Next</Button> :
+            isSelect && (QuestionNr < TotalQuestion) && <Button type="primary" className='selector' onClick={() => { setisSelect(false); callback(selectedAns); handleNext(QuestionNr); }} >Next</Button>
+
+        }
+        {
+            QuestionNr < TotalQuestion ? null :
                 <Button type="primary" className='selector' onClick={() => {
                     handleFinish()
                 }} >Finish</Button>
+
         }
     </>;
 };
